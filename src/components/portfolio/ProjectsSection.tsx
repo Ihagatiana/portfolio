@@ -241,8 +241,8 @@ const projects: Project[] = [
   },
   {
     id: "angular-saas",
-    titleFr: "SaaS Enterprise — Client Belge",
-    titleEn: "Enterprise SaaS — Belgian Client",
+    titleFr: "SaaS Enterprise — Client International",
+    titleEn: "Enterprise SaaS — International Client",
     tagFr: "Performance · UX",
     tagEn: "Performance · UX",
     descFr: "Optimisation des performances et refonte UX d'un SaaS enterprise Angular/PrimeNG. Temps de chargement réduit de ~40% pour +10 000 utilisateurs.",
