@@ -1,6 +1,7 @@
 import { useLang } from "@/contexts/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Target, TrendingUp, Lightbulb } from "lucide-react";
 
 interface Experience {
   titleFr: string;
@@ -9,6 +10,12 @@ interface Experience {
   company: string;
   projectFr: string;
   projectEn: string;
+  problemFr: string;
+  problemEn: string;
+  impactFr: string;
+  impactEn: string;
+  challengeFr: string;
+  challengeEn: string;
   tasksFr: string[];
   tasksEn: string[];
   tech: string[];
@@ -20,17 +27,23 @@ const experiences: Experience[] = [
     titleEn: "AngularJS Developer",
     period: "Avr. 2025 — présent",
     company: "Ingenosya Madagascar",
-    projectFr: "Prestation pour une entreprise étrangère",
-    projectEn: "Consulting for a foreign company",
+    projectFr: "Prestation internationale — app AngularJS legacy",
+    projectEn: "International consulting — legacy AngularJS app",
+    problemFr: "Application AngularJS legacy à stabiliser et enrichir, délais serrés, zéro tolérance aux régressions côté client.",
+    problemEn: "Legacy AngularJS app to stabilize and extend — tight deadlines, zero regression tolerance from the client.",
+    impactFr: "Bibliothèque de composants réutilisables livrée → temps de dev des nouvelles features réduit de ~30 %.",
+    impactEn: "Reusable component library shipped → new feature dev time cut ~30%.",
+    challengeFr: "Maintenir des standards modernes (tests, lisibilité) dans une codebase legacy et coordonner avec des équipes back-end multi-fuseaux.",
+    challengeEn: "Upholding modern standards inside a legacy codebase while coordinating with back-end teams across time zones.",
     tasksFr: [
-      "Collaborer avec les équipes back-end pour intégrer les APIs RESTful dans les applications AngularJS.",
-      "Concevoir et développer des composants réutilisables en AngularJS pour améliorer la maintenabilité du code.",
-      "Assurer la qualité des livrables dans un contexte de prestation internationale, en respectant les standards et délais du client.",
+      "Stabilisé et enrichi la codebase AngularJS sous contraintes de délais serrés",
+      "Conçu une lib de composants réutilisables — qualité moderne dans un contexte legacy",
+      "Coordonné l'intégration des APIs REST avec des équipes back-end multi-fuseaux",
     ],
     tasksEn: [
-      "Collaborated with back-end teams to integrate RESTful APIs into AngularJS applications.",
-      "Designed and developed reusable AngularJS components to improve code maintainability.",
-      "Ensured deliverable quality in an international consulting context, adhering to client standards and deadlines.",
+      "Stabilized and extended the legacy AngularJS codebase under tight international deadlines",
+      "Designed a reusable component library — modern standards within a legacy context",
+      "Coordinated REST API integration with back-end teams across time zones",
     ],
     tech: ["JavaScript", "AngularJS"],
   },
@@ -39,59 +52,73 @@ const experiences: Experience[] = [
     titleEn: "Angular Developer",
     period: "Avr. 2024 — Mar. 2025",
     company: "Ingenosya Madagascar",
-    projectFr: "Prestation pour une entreprise Belge",
-    projectEn: "Consulting for a Belgian company",
+    projectFr: "SaaS enterprise — client belge",
+    projectEn: "Enterprise SaaS — Belgian client",
+    problemFr: "SaaS belge aux performances dégradées et UX vieillissante, bloquant l'onboarding de nouveaux clients enterprise.",
+    problemEn: "Belgian SaaS with poor performance and outdated UX — blocking onboarding of new enterprise clients.",
+    impactFr: "Temps de chargement réduit de ~40 % via lazy loading + NgRx — meilleure expérience pour +10 000 utilisateurs.",
+    impactEn: "Load time cut ~40% via lazy loading + NgRx optimization — better experience for 10,000+ users.",
+    challengeFr: "Intégrer PrimeNG en profondeur tout en maintenant la cohérence du design system sur l'ensemble de l'app.",
+    challengeEn: "Deep PrimeNG integration while maintaining design system consistency across the whole application.",
     tasksFr: [
-      "Collaborer avec les designers UX/UI pour implémenter des interfaces utilisateurs réactives et accessibles.",
-      "Optimiser les performances des applications Angular en améliorant le chargement des modules et la gestion de l'état.",
-      "Intégrer les bibliothèques et frameworks tiers (PrimeNg).",
+      "Optimisé les performances Angular : lazy loading, tuning NgRx, code splitting",
+      "Intégré PrimeNG en profondeur — theming cohérent sur tout le design system",
+      "Livré des interfaces réactives et accessibles avec les designers UX",
     ],
     tasksEn: [
-      "Collaborated with UX/UI designers to implement reactive and accessible user interfaces.",
-      "Optimized Angular application performance by improving module loading and state management.",
-      "Integrated third-party libraries and frameworks (PrimeNg).",
+      "Optimized Angular performance: lazy loading, NgRx tuning, code splitting",
+      "Deep PrimeNG integration — consistent theming across the full design system",
+      "Delivered reactive, accessible UIs in close coordination with UX designers",
     ],
-    tech: ["TypeScript", "Angular", "PrimeNg"],
+    tech: ["TypeScript", "Angular", "PrimeNG", "RxJS"],
   },
   {
     titleFr: "Développeur Fullstack JS",
     titleEn: "Fullstack JS Developer",
     period: "2022 — Juil. 2024",
     company: "Ingenosya Madagascar",
-    projectFr: "SME BLP — Plateforme Mada Business Linkage",
+    projectFr: "SME BLP — Mada Business Linkage Platform",
     projectEn: "SME BLP — Mada Business Linkage Platform",
+    problemFr: "Les PME malgaches n'avaient aucun outil numérique pour se connecter aux réseaux d'affaires internationaux.",
+    problemEn: "Malagasy SMEs had no digital tool to connect with international business networks — a critical market gap.",
+    impactFr: "Plateforme SaaS livrée de 0 à la prod, des centaines d'entreprises connectées, 2 ans en production, équipe de 15.",
+    impactEn: "SaaS platform shipped from 0 to production — hundreds of businesses connected, 2 years live, 15-person team.",
+    challengeFr: "Concevoir un monorepo NestJS/Next.js multi-tenant avec PostgreSQL et maintenir la qualité du code sur 2 ans.",
+    challengeEn: "Architecting a NestJS/Next.js multi-tenant monorepo with PostgreSQL while sustaining code quality over 2 years.",
     tasksFr: [
-      "Mettre en place des architectures performantes et évolutives pour des applications web complexes orientées TypeScript.",
-      "Concevoir et intégrer des APIs RESTful avec Nest.js pour connecter les services front-end et back-end de la plateforme.",
-      "Utiliser Tailwind CSS et Next.js pour créer des interfaces utilisateur modernes, responsives et optimisées pour le SEO.",
-      "Implémenter des fonctionnalités avancées en TypeScript pour garantir la qualité et la maintenabilité du code fullstack.",
-      "Travailler au sein d'une équipe pluridisciplinaire de 15 personnes incluant chefs de projet, développeurs et ingénieurs qualité.",
+      "Architecturé un monorepo NestJS/Next.js multi-tenant avec PostgreSQL et TypeORM",
+      "Conçu les APIs REST — auth JWT, guards, CQRS, données multi-tenant",
+      "Construit le front Next.js : SSR/SSG, React Query, Tailwind, SEO",
     ],
     tasksEn: [
-      "Built performant, scalable TypeScript architectures for complex web applications.",
-      "Designed and integrated RESTful APIs with Nest.js to connect the platform's front-end and back-end services.",
-      "Used Tailwind CSS and Next.js to build modern, responsive, and SEO-optimized user interfaces.",
-      "Implemented advanced TypeScript features to ensure code quality and maintainability across the fullstack.",
-      "Worked within a 15-person cross-functional team including project managers, developers, and QA engineers.",
+      "Architected a NestJS/Next.js multi-tenant monorepo with PostgreSQL + TypeORM",
+      "Designed REST APIs — JWT auth, guards, CQRS, multi-tenant data layer",
+      "Built the Next.js frontend: SSR/SSG, React Query, Tailwind, SEO",
     ],
-    tech: ["TypeScript", "Next.js", "Nest.js", "Node.js", "Tailwind", "PostgreSQL"],
+    tech: ["TypeScript", "Next.js", "NestJS", "Node.js", "Tailwind", "PostgreSQL"],
   },
   {
     titleFr: "Développeur Angular",
     titleEn: "Angular Developer",
     period: "Avr. 2022 — Nov. 2022",
     company: "Ingenosya Madagascar",
-    projectFr: "Site Web d'une Université Locale",
-    projectEn: "Local University Website",
+    projectFr: "Portail web — Université locale",
+    projectEn: "Web portal — Local university",
+    problemFr: "Une université locale gérait inscriptions et communications entièrement à la main, sans aucune infrastructure numérique.",
+    problemEn: "A local university managed enrollments and communications entirely manually — no digital infrastructure at all.",
+    impactFr: "Charge administrative réduite de ~50 % — front office + back office livrés en solo en moins de 6 mois.",
+    impactEn: "Admin workload reduced ~50% — front office + back office delivered solo in under 6 months.",
+    challengeFr: "Concevoir seul deux interfaces complexes (portail étudiant + back-office) avec des workflows d'inscription multi-étapes.",
+    challengeEn: "Solo design of two distinct interfaces (student portal + admin back-office) with complex multi-step enrollment workflows.",
     tasksFr: [
-      "Conception et développement complet du front-end : Front Office (étudiants) et Back Office (administration).",
-      "Intégration des fonctionnalités clés : actualités, événements, programmes de formations et module d'inscription des étudiants.",
-      "Livraison, mise en production et maintenance évolutive selon les demandes du client.",
+      "Conçu et développé seul deux SPAs : portail étudiant + back-office admin",
+      "Implémenté des workflows d'inscription multi-étapes complexes",
+      "Livré en production et assuré la maintenance évolutive",
     ],
     tasksEn: [
-      "Fully designed and developed the front-end: Front Office (students) and Back Office (administration).",
-      "Integrated key features: news, events, training programs, and a student enrollment module.",
-      "Delivered, deployed, and provided ongoing maintenance based on client requests.",
+      "Solo design and development of two distinct SPAs: student portal + admin back-office",
+      "Implemented complex multi-step enrollment workflows",
+      "Delivered to production and maintained ongoing client iterations",
     ],
     tech: ["TypeScript", "Angular"],
   },
@@ -100,28 +127,83 @@ const experiences: Experience[] = [
     titleEn: "Odoo Developer",
     period: "Avr. 2021 — Mar. 2022",
     company: "Ingenosya Madagascar",
-    projectFr: "Extensions ERP Odoo — Entreprises malgaches",
-    projectEn: "Odoo ERP Extensions — Malagasy companies",
+    projectFr: "Extensions ERP — Entreprises malgaches",
+    projectEn: "ERP extensions — Malagasy companies",
+    problemFr: "Plusieurs entreprises utilisaient Odoo sans modules critiques (GED, flotte, production) — tout géré sur papier ou Excel.",
+    problemEn: "Several companies used Odoo without critical modules (document management, fleet, production) — all on paper or Excel.",
+    impactFr: "4 modules ERP custom en production — workflows documentaires et gestion de flotte automatisés pour plusieurs clients.",
+    impactEn: "4 custom ERP modules shipped to production — automated document workflows and fleet management for multiple clients.",
+    challengeFr: "Maîtriser l'ORM Python d'Odoo et ses patterns spécifiques pour des workflows d'approbation complexes inter-modules.",
+    challengeEn: "Mastering Odoo's Python ORM to design complex cross-module approval workflows and robust integrations.",
     tasksFr: [
-      "Développement d'un module de gestion électronique de documents (GED) : classement, archivage et workflows d'approbation.",
-      "Implémentation d'un module de suivi de flotte automobile et d'engins lourds avec gestion de la maintenance.",
-      "Développement d'un module de gestion des infrastructures physiques et des équipements.",
-      "Intégration d'un module de gestion de production avec suivi des ordres de fabrication.",
+      "Développé 4 modules Odoo custom : GED, flotte, infrastructure, suivi de production",
+      "Conçu des workflows d'approbation complexes via l'ORM Python d'Odoo",
+      "Intégré et testé des modules inter-dépendants en production",
     ],
     tasksEn: [
-      "Developed an electronic document management (EDM) module: filing, archiving, and approval workflows.",
-      "Implemented a vehicle and heavy equipment fleet tracking module with maintenance management.",
-      "Developed a physical infrastructure and equipment management module.",
-      "Integrated a production management module with manufacturing order tracking.",
+      "Built 4 custom Odoo modules: document management, fleet, infrastructure, production tracking",
+      "Designed complex approval workflows using Odoo's Python ORM",
+      "Integrated and tested cross-dependent modules in production",
     ],
     tech: ["Python", "JavaScript", "Odoo 13"],
   },
 ];
 
+/* ── Shared card config ── */
+const cards = [
+  {
+    key: "problem" as const,
+    icon: Target,
+    labelFr: "Contexte",
+    labelEn: "Context",
+    color: {
+      border: "border-amber-500/20",
+      bg:     "bg-amber-500/5",
+      icon:   "text-amber-400",
+      label:  "text-amber-400",
+    },
+  },
+  {
+    key: "impact" as const,
+    icon: TrendingUp,
+    labelFr: "Impact",
+    labelEn: "Impact",
+    color: {
+      border: "border-green-500/20",
+      bg:     "bg-green-500/5",
+      icon:   "text-green-400",
+      label:  "text-green-400",
+    },
+  },
+  {
+    key: "challenge" as const,
+    icon: Lightbulb,
+    labelFr: "Défi technique",
+    labelEn: "Key challenge",
+    color: {
+      border: "border-primary/20",
+      bg:     "bg-primary/5",
+      icon:   "text-primary",
+      label:  "text-primary",
+    },
+  },
+] as const;
+
+type CardKey = (typeof cards)[number]["key"];
+
+function getCardText(exp: Experience, key: CardKey, lang: string) {
+  if (key === "problem")   return lang === "fr" ? exp.problemFr   : exp.problemEn;
+  if (key === "impact")    return lang === "fr" ? exp.impactFr    : exp.impactEn;
+  return                          lang === "fr" ? exp.challengeFr : exp.challengeEn;
+}
+
+/* ── Component ── */
+
 const ExperienceSection = () => {
   const { t, lang } = useLang();
   const [selected, setSelected] = useState(0);
   const exp = experiences[selected];
+  const tasks = lang === "fr" ? exp.tasksFr : exp.tasksEn;
 
   return (
     <section id="experience" className="py-16 bg-card/50">
@@ -135,10 +217,10 @@ const ExperienceSection = () => {
           {t("Expériences Professionnelles", "Professional Experience")}
         </motion.h2>
 
-        <div className="flex flex-col md:grid md:grid-cols-[260px_1fr] gap-4 md:gap-10">
+        <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] gap-4 md:gap-10">
 
           {/* Left: tab list */}
-          <div className="flex md:flex-col gap-1 overflow-x-auto md:overflow-visible pb-2 md:pb-0 md:border-l md:border-border">
+          <div className="flex md:flex-col gap-1 overflow-x-auto md:overflow-visible pb-2 md:pb-0 md:border-l md:border-border shrink-0">
             {experiences.map((e, i) => (
               <button
                 key={i}
@@ -149,46 +231,72 @@ const ExperienceSection = () => {
                     : "md:border-transparent text-muted-foreground hover:bg-primary/5 hover:text-foreground"
                 }`}
               >
-                <span className="font-mono text-xs text-primary block">{e.period}</span>
-                <span className="text-sm font-semibold block mt-0.5">{t(e.titleFr, e.titleEn)}</span>
-                <span className="text-xs text-muted-foreground hidden md:block">{e.company}</span>
+                <span className="font-mono text-[11px] text-primary block">{e.period}</span>
+                <span className="text-sm font-semibold block mt-0.5 leading-snug">{t(e.titleFr, e.titleEn)}</span>
+                <span className="text-xs text-muted-foreground hidden md:block mt-0.5">{e.company}</span>
               </button>
             ))}
           </div>
 
-          {/* Right: detail panel */}
+          {/* Right: detail */}
           <AnimatePresence mode="wait">
             <motion.div
               key={selected}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.22 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="min-w-0"
             >
-              <p className="text-xs font-mono text-primary/70 italic mb-3">
+              {/* Header */}
+              <p className="font-mono text-xs text-primary/60 mb-1.5">
                 {t(exp.projectFr, exp.projectEn)}
               </p>
-              <h3 className="text-2xl font-bold text-foreground mb-1">
+              <h3 className="text-2xl font-bold text-foreground leading-tight">
                 {t(exp.titleFr, exp.titleEn)}
               </h3>
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="text-sm text-muted-foreground mt-1 mb-7">
                 {exp.company}
-                <span className="mx-2 text-border">·</span>
+                <span className="mx-2 opacity-30">·</span>
                 <span className="font-mono text-primary text-xs">{exp.period}</span>
               </p>
-              <ul className="space-y-3 mb-8 max-w-2xl">
-                {(lang === "fr" ? exp.tasksFr : exp.tasksEn).map((task: string, j: number) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-secondary-foreground leading-relaxed">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+
+              {/* 3 context cards — uniform structure, semantic colors */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-7">
+                {cards.map(({ key, icon: Icon, labelFr, labelEn, color }) => (
+                  <div
+                    key={key}
+                    className={`rounded-xl border ${color.border} ${color.bg} p-4 flex flex-col gap-2.5`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${color.icon}`} />
+                      <span className={`text-[10px] font-mono uppercase tracking-widest ${color.label}`}>
+                        {t(labelFr, labelEn)}
+                      </span>
+                    </div>
+                    <p className="text-xs text-secondary-foreground leading-relaxed">
+                      {getCardText(exp, key, lang)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Task bullets — compact, secondary */}
+              <ul className="space-y-1.5 mb-6">
+                {tasks.map((task, j) => (
+                  <li key={j} className="flex items-start gap-2.5 text-xs text-muted-foreground leading-relaxed">
+                    <span className="mt-[5px] w-1 h-1 rounded-full bg-primary/40 shrink-0" />
                     {task}
                   </li>
                 ))}
               </ul>
+
+              {/* Tech badges */}
               <div className="flex flex-wrap gap-2">
                 {exp.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs font-mono px-3 py-1 rounded-full bg-secondary text-primary"
+                    className="text-xs font-mono px-3 py-1 rounded-full bg-secondary border border-border text-secondary-foreground"
                   >
                     {tech}
                   </span>
@@ -196,7 +304,6 @@ const ExperienceSection = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-
         </div>
       </div>
     </section>

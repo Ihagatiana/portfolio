@@ -48,8 +48,10 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.2 }}
             onSubmit={handleSubmit}
-            className="space-y-4 bg-card p-6 rounded-xl border border-border shadow-sm"
+            className="space-y-4 bg-card p-6 rounded-xl border border-border shadow-sm hover:border-primary/30 hover:shadow-[0_0_24px_-6px_hsl(var(--primary)/0.3)] transition-colors duration-300"
           >
             <h3 className="text-lg font-semibold mb-2">{t("Envoyer un message", "Send a Message")}</h3>
             <Input
@@ -91,7 +93,11 @@ const ContactSection = () => {
             viewport={{ once: true }}
             className="flex flex-col justify-between gap-8"
           >
-            <div className="space-y-4 bg-card p-6 rounded-xl border border-border shadow-sm">
+            <motion.div
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
+              className="space-y-4 bg-card p-6 rounded-xl border border-border shadow-sm hover:border-primary/30 hover:shadow-[0_0_24px_-6px_hsl(var(--primary)/0.3)] transition-colors duration-300"
+            >
               <h3 className="text-lg font-semibold">{t("Coordonnées", "Contact Info")}</h3>
               <div className="space-y-4 text-sm">
                 <a href="mailto:rihagatiana0@gmail.com" className="flex items-center gap-3 hover:text-primary transition-colors">
@@ -107,7 +113,7 @@ const ContactSection = () => {
                   034 33 534 07
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             <a
               href={whatsappLink}

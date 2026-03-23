@@ -49,6 +49,49 @@
     --gradient-accent: linear-gradient(135deg, hsl(35 90% 52%), hsl(25 85% 45%));
     --shadow-glow: 0 0 30px -5px hsl(174 72% 38% / 0.25);
   }
+
+  .dark {
+    --background: 224 16% 6%;
+    --foreground: 220 10% 92%;
+
+    --card: 224 14% 10%;
+    --card-foreground: 220 10% 92%;
+
+    --popover: 224 14% 10%;
+    --popover-foreground: 220 10% 92%;
+
+    --primary: 174 72% 50%;
+    --primary-foreground: 224 16% 6%;
+
+    --secondary: 224 12% 15%;
+    --secondary-foreground: 220 10% 70%;
+
+    --muted: 224 12% 14%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 35 90% 55%;
+    --accent-foreground: 224 16% 6%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 224 12% 16%;
+    --input: 224 12% 16%;
+    --ring: 174 72% 50%;
+
+    --sidebar-background: 224 14% 10%;
+    --sidebar-foreground: 220 10% 70%;
+    --sidebar-primary: 174 72% 50%;
+    --sidebar-primary-foreground: 224 16% 6%;
+    --sidebar-accent: 224 12% 15%;
+    --sidebar-accent-foreground: 220 10% 70%;
+    --sidebar-border: 224 12% 16%;
+    --sidebar-ring: 174 72% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(174 72% 50%), hsl(190 80% 42%));
+    --gradient-accent: linear-gradient(135deg, hsl(35 90% 55%), hsl(25 85% 48%));
+    --shadow-glow: 0 0 40px -8px hsl(174 72% 50% / 0.4);
+  }
 }
 
 @layer base {
@@ -83,4 +126,51 @@
   .glow {
     box-shadow: var(--shadow-glow);
   }
+
+  .glow-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glow-hover:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-30px) scale(1.04); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+  33% { transform: translateY(-20px) scale(1.05) rotate(5deg); }
+  66% { transform: translateY(15px) scale(0.97) rotate(-3deg); }
+}
+
+@keyframes nav-underline {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orb-1 {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.orb-2 {
+  animation: float-slower 11s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.orb-3 {
+  animation: float-slow 14s ease-in-out infinite;
+  animation-delay: -6s;
 }
