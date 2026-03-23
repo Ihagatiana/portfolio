@@ -222,10 +222,13 @@ const ExperienceSection = () => {
           {/* Left: tab list */}
           <div className="flex md:flex-col gap-1 overflow-x-auto md:overflow-visible pb-2 md:pb-0 md:border-l md:border-border shrink-0">
             {experiences.map((e, i) => (
-              <button
+              <motion.button
                 key={i}
                 onClick={() => setSelected(i)}
-                className={`text-left shrink-0 md:shrink px-4 py-3 md:-ml-px md:border-l-2 transition-all duration-200 rounded-lg md:rounded-none ${
+                whileHover={{ x: 3 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.15 }}
+                className={`text-left shrink-0 md:shrink px-4 py-3 md:-ml-px md:border-l-2 transition-colors duration-200 rounded-lg md:rounded-none ${
                   selected === i
                     ? "md:border-primary bg-primary/10 text-foreground"
                     : "md:border-transparent text-muted-foreground hover:bg-primary/5 hover:text-foreground"
@@ -234,7 +237,7 @@ const ExperienceSection = () => {
                 <span className="font-mono text-[11px] text-primary block">{e.period}</span>
                 <span className="text-sm font-semibold block mt-0.5 leading-snug">{t(e.titleFr, e.titleEn)}</span>
                 <span className="text-xs text-muted-foreground hidden md:block mt-0.5">{e.company}</span>
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -263,10 +266,14 @@ const ExperienceSection = () => {
 
               {/* 3 context cards — uniform structure, semantic colors */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-7">
-                {cards.map(({ key, icon: Icon, labelFr, labelEn, color }) => (
-                  <div
+                {cards.map(({ key, icon: Icon, labelFr, labelEn, color }, idx) => (
+                  <motion.div
                     key={key}
-                    className={`rounded-xl border ${color.border} ${color.bg} p-4 flex flex-col gap-2.5`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: idx * 0.08 }}
+                    whileHover={{ y: -3, transition: { duration: 0.15 } }}
+                    className={`rounded-xl border ${color.border} ${color.bg} p-4 flex flex-col gap-2.5 cursor-default`}
                   >
                     <div className="flex items-center gap-2">
                       <Icon className={`w-3.5 h-3.5 shrink-0 ${color.icon}`} />
@@ -277,7 +284,7 @@ const ExperienceSection = () => {
                     <p className="text-xs text-secondary-foreground leading-relaxed">
                       {getCardText(exp, key, lang)}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 

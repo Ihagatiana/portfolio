@@ -50,7 +50,7 @@ const HeroSection = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
             <span className="text-foreground">Ihagatiana</span>
             <br />
-            <span className="text-gradient">Ramilijaona</span>
+            <span className="text-gradient-animated">Ramilijaona</span>
           </h1>
 
           <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-3">

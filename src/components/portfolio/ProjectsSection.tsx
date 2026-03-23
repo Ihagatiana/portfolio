@@ -172,7 +172,9 @@ function ComingSoonPanel({ t }: { t: (fr: string, en: string) => string }) {
 
 interface Project {
   id: string;
-  titleFr: string;
+  tabFr: string;       // short label for the tab button
+  tabEn: string;
+  titleFr: string;     // impactful headline shown in the panel
   titleEn: string;
   tagFr?: string;
   tagEn?: string;
@@ -189,70 +191,78 @@ interface Project {
 const projects: Project[] = [
   {
     id: "sme-blp",
-    titleFr: "Plateforme SaaS B2B",
-    titleEn: "B2B SaaS Platform",
-    tagFr: "SaaS Production",
-    tagEn: "SaaS Production",
-    descFr: "Plateforme SaaS fullstack livrée de zéro à la production pour connecter les PME malgaches aux réseaux internationaux. Monorepo NestJS/Next.js multi-tenant, 2 ans en prod, équipe de 15.",
-    descEn: "Full SaaS platform shipped from zero to production, connecting Malagasy SMEs to international networks. NestJS/Next.js monorepo, multi-tenant, 2 years in prod, 15-person team.",
+    tabFr: "Plateforme SaaS B2B",
+    tabEn: "B2B SaaS Platform",
+    titleFr: "De zéro à la production — plateforme SaaS B2B en 2 ans",
+    titleEn: "Zero to production — B2B SaaS platform in 2 years",
+    tagFr: "SaaS · Production",
+    tagEn: "SaaS · Production",
+    descFr: "Des PME sans présence numérique ne pouvaient pas accéder aux réseaux d'affaires internationaux. J'ai conçu et livré une plateforme SaaS fullstack de zéro — monorepo NestJS/Next.js multi-tenant — qui connecte aujourd'hui des centaines d'entreprises, 2 ans en production dans une équipe de 15.",
+    descEn: "SMEs with no digital presence couldn't access international business networks. I designed and shipped a full SaaS platform from scratch — NestJS/Next.js multi-tenant monorepo — now connecting hundreds of businesses, 2 years in production within a 15-person team.",
     tech: ["TypeScript", "NestJS", "Next.js", "PostgreSQL", "Tailwind", "Node.js"],
     highlights: [
-      "Monorepo NestJS + Next.js — TypeScript end-to-end",
-      "Auth JWT · Guards · Decorators · CQRS",
-      "PostgreSQL multi-tenant + TypeORM migrations",
-      "React Query · SSR/SSG · SEO optimisé",
+      "Problème : zéro infrastructure numérique pour les PME locales",
+      "Solution : monorepo NestJS/Next.js, auth JWT, multi-tenant PostgreSQL",
+      "Résultat : des centaines d'entreprises connectées, 2 ans en prod",
+      "Équipe de 15 — architecture TypeScript end-to-end",
     ],
     diagram: "sme",
     teamSize: "15",
   },
   {
     id: "test-automation",
-    titleFr: "Framework de Tests Automatisés",
-    titleEn: "Automated Test Framework",
+    tabFr: "Tests Automatisés",
+    tabEn: "Test Automation",
+    titleFr: "Zéro régression manuelle — pipeline CI/CD Jest + Playwright",
+    titleEn: "Zero manual regression — CI/CD pipeline with Jest + Playwright",
     tagFr: "Automation · CI/CD",
     tagEn: "Automation · CI/CD",
-    descFr: "Pipeline de tests complet : tests unitaires Jest, tests d'intégration NestJS et E2E Playwright, exécutés automatiquement via GitHub Actions à chaque pull request. Rapports HTML + coverage.",
-    descEn: "Complete test pipeline: Jest unit tests, NestJS integration tests, and Playwright E2E — auto-triggered via GitHub Actions on every pull request. HTML reports + coverage.",
+    descFr: "Les régressions manuelles ralentissaient les livraisons. J'ai mis en place un pipeline CI/CD complet : Jest (unit + intégration NestJS) et Playwright (E2E cross-browser), déclenché automatiquement sur chaque PR via GitHub Actions — chaque merge est validé avant d'atteindre la production.",
+    descEn: "Manual regression testing was slowing down every release. I built a full CI/CD pipeline: Jest (unit + NestJS integration) and Playwright (cross-browser E2E), auto-triggered on every PR via GitHub Actions — every merge is validated before it reaches production.",
     tech: ["TypeScript", "Playwright", "Jest", "NestJS", "GitHub Actions", "CI/CD"],
     highlights: [
-      "Jest unit + NestJS integration tests",
-      "Playwright E2E — cross-browser + visual regression",
-      "GitHub Actions — PR status checks automatiques",
-      "Coverage report + HTML artifacts en CI",
+      "Problème : régressions manuelles coûteuses à chaque release",
+      "Solution : Jest unit/intégration + Playwright E2E en parallèle",
+      "Résultat : chaque PR validée automatiquement avant merge",
+      "Coverage report + HTML artifacts générés en CI",
     ],
     diagram: "automation",
   },
   {
     id: "mini-saas",
-    titleFr: "Mini SaaS — Business Tool",
-    titleEn: "Mini SaaS — Business Tool",
+    tabFr: "Mini SaaS",
+    tabEn: "Mini SaaS",
+    titleFr: "Automatiser les workflows métier répétitifs — SaaS en cours",
+    titleEn: "Automating repetitive business workflows — SaaS in progress",
     tagFr: "En construction 🔨",
     tagEn: "In progress 🔨",
-    descFr: "Application SaaS fullstack en cours de développement : gestion de tâches et automatisation de workflows métier, avec tableau de bord Angular et API NestJS. Démo live bientôt disponible.",
-    descEn: "Full-stack SaaS app in active development: task and business workflow automation, Angular dashboard + NestJS API. Live demo coming soon.",
+    descFr: "Les équipes perdent des heures sur des tâches manuelles et répétitives. Je construis un outil SaaS qui automatise ces workflows — tableau de bord Angular, API NestJS event-driven, jobs asynchrones Redis. Démo live bientôt disponible.",
+    descEn: "Teams waste hours on repetitive manual tasks. I'm building a SaaS tool that automates these workflows — Angular dashboard, event-driven NestJS API, Redis async jobs. Live demo coming soon.",
     tech: ["TypeScript", "Angular", "NestJS", "PostgreSQL", "Redis", "Docker"],
     highlights: [
-      "Angular standalone components + Signals",
-      "NestJS event-driven architecture",
-      "Redis pour jobs asynchrones",
+      "Problème : workflows répétitifs chronophages sans automatisation",
+      "Solution : Angular Signals + NestJS event-driven + Redis jobs",
+      "Résultat : démo live en cours de déploiement",
       "Docker Compose — dev + prod ready",
     ],
     comingSoon: true,
   },
   {
     id: "angular-saas",
-    titleFr: "SaaS Enterprise — Client International",
-    titleEn: "Enterprise SaaS — International Client",
+    tabFr: "SaaS Enterprise",
+    tabEn: "Enterprise SaaS",
+    titleFr: "Temps de chargement divisé par 2 — SaaS enterprise 10k+ users",
+    titleEn: "Load time halved — enterprise SaaS serving 10k+ users",
     tagFr: "Performance · UX",
     tagEn: "Performance · UX",
-    descFr: "Optimisation des performances et refonte UX d'un SaaS enterprise Angular/PrimeNG. Temps de chargement réduit de ~40% pour +10 000 utilisateurs.",
-    descEn: "Performance optimization and UX overhaul of an Angular/PrimeNG enterprise SaaS. Load time reduced ~40% for 10,000+ users.",
+    descFr: "Un SaaS enterprise Angular souffrait de performances dégradées bloquant l'onboarding de nouveaux clients. J'ai refactorisé l'architecture : lazy loading, NgRx optimisé, PrimeNG theming cohérent — temps de chargement réduit de ~40%, Lighthouse passé de 45 à 78.",
+    descEn: "An enterprise Angular SaaS had poor performance blocking new client onboarding. I refactored the architecture: lazy loading, optimized NgRx, consistent PrimeNG theming — load time cut ~40%, Lighthouse score from 45 to 78.",
     tech: ["TypeScript", "Angular", "PrimeNG", "RxJS"],
     highlights: [
-      "Lazy loading + code splitting modules",
-      "NgRx state management optimization",
-      "PrimeNG deep integration & theming",
-      "Lighthouse: 45 → 78",
+      "Problème : performances dégradées bloquant l'onboarding enterprise",
+      "Solution : lazy loading, NgRx tuning, code splitting, PrimeNG theming",
+      "Résultat : −40% de temps de chargement, Lighthouse 45 → 78",
+      "Impact : meilleure expérience pour +10 000 utilisateurs",
     ],
   },
 ];
@@ -326,16 +336,19 @@ const ProjectsSection = () => {
         {/* Tab list */}
         <div className="flex gap-2 mb-8 flex-wrap">
           {projects.map((p, i) => (
-            <button
+            <motion.button
               key={p.id}
               onClick={() => setSelected(i)}
-              className={`group px-4 py-2 rounded-lg text-sm font-mono transition-all duration-200 ${
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.15 }}
+              className={`group px-4 py-2 rounded-lg text-sm font-mono transition-colors duration-200 ${
                 selected === i
-                  ? "bg-primary/15 text-primary border border-primary/40"
+                  ? "bg-primary/15 text-primary border border-primary/40 shadow-[0_0_16px_-4px_hsl(var(--primary)/0.3)]"
                   : "border border-border text-muted-foreground hover:border-primary/20 hover:text-foreground"
               }`}
             >
-              {t(p.titleFr, p.titleEn)}
+              {t(p.tabFr, p.tabEn)}
               {p.comingSoon && (
                 <span className="ml-2 px-1.5 py-0.5 rounded text-[10px] bg-amber-500/15 text-amber-400 border border-amber-500/30">
                   WIP
@@ -346,7 +359,7 @@ const ProjectsSection = () => {
                   <FlaskConical className="w-2.5 h-2.5 inline" />
                 </span>
               )}
-            </button>
+            </motion.button>
           ))}
         </div>
 
@@ -381,15 +394,31 @@ const ProjectsSection = () => {
 
               <ul className="space-y-2.5 mb-6">
                 {proj.highlights.map((h, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-secondary-foreground">
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: i * 0.07 }}
+                    className="flex items-start gap-2.5 text-sm text-secondary-foreground"
+                  >
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     <span className="font-mono text-xs">{h}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
               <div className="flex flex-wrap gap-2">
-                {proj.tech.map(tech => <TechBadge key={tech} name={tech} />)}
+                {proj.tech.map((tech, i) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.15, delay: i * 0.05 }}
+                    whileHover={{ scale: 1.08, transition: { duration: 0.12 } }}
+                  >
+                    <TechBadge name={tech} />
+                  </motion.span>
+                ))}
               </div>
 
               {proj.liveUrl && (
