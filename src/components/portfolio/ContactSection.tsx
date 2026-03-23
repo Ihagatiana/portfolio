@@ -110,7 +110,7 @@ const ContactSection = () => {
                 </span>
                 <span className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  034 33 534 07
+                  +261 34 33 534 07
                 </span>
               </div>
             </motion.div>
@@ -131,7 +131,7 @@ const ContactSection = () => {
       {/* Footer */}
       <div className="container mx-auto px-6 mt-12 pt-6 border-t border-border">
         <p className="text-center text-xs text-muted-foreground font-mono">
-          © 2026 Ihagatiana Ramilijaona. {t("Tous droits réservés.", "All rights reserved.")}
+          © {new Date().getFullYear()} Ihagatiana Ramilijaona. {t("Tous droits réservés.", "All rights reserved.")}
         </p>
       </div>
     </section>

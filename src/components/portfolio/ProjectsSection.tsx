@@ -189,8 +189,8 @@ interface Project {
 const projects: Project[] = [
   {
     id: "sme-blp",
-    titleFr: "SME BLP — Mada Business Linkage",
-    titleEn: "SME BLP — Mada Business Linkage",
+    titleFr: "Plateforme SaaS B2B",
+    titleEn: "B2B SaaS Platform",
     tagFr: "SaaS Production",
     tagEn: "SaaS Production",
     descFr: "Plateforme SaaS fullstack livrée de zéro à la production pour connecter les PME malgaches aux réseaux internationaux. Monorepo NestJS/Next.js multi-tenant, 2 ans en prod, équipe de 15.",

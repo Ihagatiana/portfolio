@@ -116,7 +116,7 @@ const HeroSection = () => {
             </span>
             <span className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-primary" />
-              034 33 534 07
+              +261 34 33 534 07
             </span>
           </div>
         </motion.div>
