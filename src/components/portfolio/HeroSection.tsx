@@ -1,6 +1,6 @@
 import { useLang } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Github, Briefcase } from "lucide-react";
+import { Mail, MapPin, Phone, Github, Briefcase, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const GITHUB_URL = "https://github.com/Ihagatiana"; // update with your real username
@@ -102,6 +102,14 @@ const HeroSection = () => {
             >
               <Github className="w-4 h-4" />
               GitHub
+            </a>
+            <a
+              href={`${import.meta.env.BASE_URL}cv.pdf`}
+              download="Ihagatiana_Ramilijaona_CV.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/30 text-primary/80 font-semibold text-sm hover:bg-primary/10 hover:border-primary/60 hover:text-primary transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              {t("Télécharger mon CV", "Download my CV")}
             </a>
           </div>
 
