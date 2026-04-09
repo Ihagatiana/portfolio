@@ -75,7 +75,7 @@ const experiences: Experience[] = [
   {
     titleFr: "Développeur Fullstack JS",
     titleEn: "Fullstack JS Developer",
-    period: "2022 — Juil. 2024",
+    period: "2022 — 2024",
     company: "Ingenosya Madagascar",
     projectFr: "Plateforme SaaS — Mise en relation B2B",
     projectEn: "SaaS Platform — B2B Business Networking",
@@ -100,7 +100,7 @@ const experiences: Experience[] = [
   {
     titleFr: "Développeur Angular",
     titleEn: "Angular Developer",
-    period: "Avr. 2022 — Nov. 2022",
+    period: "Avr. 2022 — Août 2022",
     company: "Ingenosya Madagascar",
     projectFr: "Portail web — Université locale",
     projectEn: "Web portal — Local university",
